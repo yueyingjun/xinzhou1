@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/u-reset.min.css">
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <style>
+        .swiper-container {
+            width: 100vw;
+            height: 100vh;
+        }
+        .one{
+            background: url("./images/slide1/bg.png") no-repeat center /cover;
+        }
+        .zhuangshi{
+            background: url("./images/zhuangshi.png") no-repeat center /cover;
+            width:1.66rem;height:1.2rem;
+            left:0.6rem;top:0.72rem;position: absolute;
+        }
+        .fav{
+            background: url("./images/slide1/fav.png") no-repeat center /cover;
+            width:1.5rem;height:1.5rem;
+            right:0.6rem;top:0.5rem;position: absolute;
+        }
+        .block{
+            background: url("./images/slide1/block.png") no-repeat center /cover;
+            width:5.57rem;height:5.7rem;
+            right:0;top:0;position: absolute;left:0; bottom: 0;margin: auto;
+        }
+        .shoes{
+            background: url("./images/slide1/shoes.png") no-repeat center /cover;
+            width:6.94rem;height:5.73rem;
+            right:0;top:0;position: absolute;left:0; bottom: 0;margin: auto;
+        }
+
+        .title{
+            background: url("./images/slide1/title.png") no-repeat center /cover;
+            width:2.81rem;height:1.55rem;
+            left:0.6rem;top:9.23rem;position: absolute;
+        }
+        .gongyi{
+            background: url("./images/slide1/gongyi.png") no-repeat center /cover;
+            width:1.32rem;height:0.65rem;
+            left:0.6rem;bottom:1.30rem;position: absolute;
+        }
+        .price{
+            background: url("./images/slide1/price.png") no-repeat center /cover;
+            width:1.88rem;height:0.71rem;
+            right:0.6rem;bottom:1.0rem;position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide one">
+            <div class="zhuangshi ani" swiper-animate-effect="bounce"></div>
+
+            <div class="fav ani" swiper-animate-effect="flash"></div>
+            <div class="block"></div>
+            <div class="shoes ani" swiper-animate-effect="rollIn"></div>
+
+            <div class="title ani" swiper-animate-effect="zoomIn"></div>
+            <div class="gongyi ani" swiper-animate-effect="rotateIn"></div>
+            <div class="price ani" swiper-animate-effect="flip"></div>
+
+        </div>
+
+
+        <div class="swiper-slide">
+
+
+        </div>
+        <div class="swiper-slide">
+
+
+        </div>
+    </div>
+</div>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'vertical', // 垂直切换选项
+        loop: true, // 循环模式选项
+        on:{
+            init: function(){
+                swiperAnimateCache(this); //隐藏动画元素
+                swiperAnimate(this); //初始化完成开始动画
+            },
+            slideChangeTransitionEnd: function(){
+                swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+                //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+            }
+        }
+    })
+</script>
+</body>
+</html>

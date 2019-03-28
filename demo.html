@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" rem="750">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/swiper.animate.min.js"></script>
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/u-reset.min.css">
+    <style>
+        .one{
+            background: url("images/slide1/bg.png") no-repeat center / cover;
+        }
+        img{
+            width:200px;
+            position: absolute;
+            left:0;top:0;bottom: 0;right:0;margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide one">
+            <img src="images/slide1/shoes.png" alt="" class="ani" swiper-animate-effect="tada" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+        </div>
+        <div class="swiper-slide">
+            1
+        </div>
+        <div class="swiper-slide">
+            1
+        </div>
+        <div class="swiper-slide">
+            1
+        </div><div class="swiper-slide">
+            1
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+   var mySwiper = new Swiper ('.swiper-container', {
+    direction: 'vertical', // 垂直切换选项
+    loop: true, // 循环模式选项
+    height:window.innerHeight,
+        on:{
+      init: function(){
+        swiperAnimateCache(this); //隐藏动画元素
+        swiperAnimate(this); //初始化完成开始动画
+      },
+      slideChangeTransitionEnd: function(){
+        swiperAnimate(this); //每个slide切换结束时也运行当前slide动画
+        //this.slides.eq(this.activeIndex).find('.ani').removeClass('ani'); 动画只展现一次，去除ani类名
+      }
+    }
+
+  })
+</script>
+</body>
+</html>
